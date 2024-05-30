@@ -64,6 +64,21 @@ EXPOSE 9090
 CMD ["java","-jar","app.jar"]
 
 ```
+## Example Building mysql image using docker-compose.yml
+```
+version: '3.1'
+
+services:
+  ecommerce:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3309:3306"
+    volumes:
+      - ./data.sql:/docker-entrypoint-intidb.d/data.sql
+```
 # Containers
 ## Running containers
 ```
