@@ -1,3 +1,29 @@
+# Docker Basics
+
+## Terms
+ - Client/server architecture
+ - Containers
+ - Dockerfiles
+ - Docker daemon (engine)
+ - Docker registries
+ - Hypervisors 
+ - Images
+ - Kernel
+ - Process
+ - Virtual machines
+
+## Summary
+ - Docker is a platform for consistently building, running, and shipping applications
+ - Using hypervisors we can create and manage virtual machines. The most popular hypervisors are VirtualBox, VMware and Hyper-v (Windows-only)
+ - Docker uses client/server architecture.
+ - It has a client component that talks to the server using a RESTful API.
+ - The server is also called the Docker engine (or daemon) runs in the background and is responsible for doing the actual work
+ - Using Docker, we can bundle an application into an image. Once we have an image, we can run it on any machine that runs Docker.
+ - To bundle an application into an image, we need to create a Dockerfile.
+ - A Dockerfile contains all the instructions needed to package up an application into an image
+ - We can share our images by publishing them on Docker registries.
+ - The most popular Docker registry is Docker Hub
+
 # Containers
 ## Running containers
 ```
