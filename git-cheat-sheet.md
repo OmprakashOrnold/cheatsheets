@@ -177,3 +177,65 @@ git rebase master               # Changes the base of the current branch
 ```
 git cherry-pick dad47ed          # Applies the given commit on the current branch
 ```
+
+# Collaboration 
+## Cloning a repository
+```
+git clone url
+```
+## Syncing with remotes
+```
+git fetch origin master            # Fetches master from origin 
+git fetch origin                   # Fetches all objects from origin 
+git fetch                          # Shortcut for “git fetch origin” 
+git pull                           # Fetch + merge 
+git push origin master             # Pushes master to origin 
+git push                           # Shortcut for “git push origin master”
+```
+## Sharing tags
+```
+git push origin v1.0                # Pushes tag v1.0 to origin 
+git push origin —delete v1.0
+```
+## Sharing branches
+```
+git branch -r                   # Shows remote tracking branches 
+git branch -vv                  # Shows local & remote tracking branches 
+git push -u origin bugfix       # Pushes bugfix to origin 
+git push -d origin bugfix       # Removes bugfix from origin
+
+```
+## Managing remotes 
+```
+git remote                         # Shows remote repos 
+git remote add upstream url        # Adds a new remote called upstream 
+git remote rm upstream             # Remotes upstream
+```
+# Rewriting History 
+## Undoing commits 
+```
+git reset --soft HEAD^        # Removes the last commit, keeps changed staged 
+git reset --mixed HEAD^       # Unstages the changes as well 
+git reset --hard HEAD^        # Discards local changes
+```
+## Reverting commits 
+```
+git revert 72856ea           # Reverts the given commit 
+git revert HEAD~3..          # Reverts the last three commits 
+git revert --no-commit HEAD~3..
+```
+## Recovering lost commits 
+```
+git reflog                        # Shows the history of HEAD 
+git reflog show bugfix            # Shows the history of bugfix pointer
+````
+## Amending the last commit 
+```
+git commit --amend
+```
+## Interactive rebasing 
+```
+git rebase -i HEAD~5
+```
+
+
