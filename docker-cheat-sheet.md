@@ -24,6 +24,46 @@
  - We can share our images by publishing them on Docker registries.
  - The most popular Docker registry is Docker Hub
 
+# Images
+## Dockerfile instructions
+```
+FROM            # to specify the base image 
+WORKDIR         # to set the working directory
+COPY            # to copy files/directories
+ADD             # to copy files/directories
+RUN             # to run commands 
+ENV             # to set environment variables
+EXPOSE          # to document the port the container is listening on
+USER            # to set the user running the app
+CMD             # to set the default command/program
+ENTRYPOINT      # to set the default command/program
+```
+## Image commands
+```
+docker build -t <name> .
+docker images 
+docker image ls 
+docker run -it <image> sh
+```
+## Example Dockerfile for building image for Spring boot java application
+```
+
+FROM maven:3.8.6 AS build
+WORKDIR /app
+COPY pom.xml /app
+RUN mvn dependency:resolve
+COPY . /app
+RUN mvn clean
+RUN mvn package -DskipTests
+
+
+FROM openjdk:17-jdk-alpine
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 9090
+CMD ["java","-jar","app.jar"]
+
+```
 # Containers
 ## Running containers
 ```
